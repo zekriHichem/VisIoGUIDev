@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+<mat-card fxFlex="100">
+  <div class="card-header float-lg-right">
+    <button class="btn btn-info" (click)="reduceCard()"  *ngIf="reduce">-</button>
+    <button class="btn btn-info" (click)="reduceCard()"  *ngIf="!reduce">open</button>
+  </div>
+<div class="card-title"> <h4>{{this.name}}</h4>   size : {{size}} Bit</div>
+<div class="card-body">
+<div class="row">
+  <div class="col-lg-6">
+    <table class="table" *ngIf="reduce">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Parameter name</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let i of table1">
+        <th scope="row">{{this.getindex1(i)}}</th>
+        <td>{{i}}</td>
+        <td> <button type="button" class="btn btn-labeled btn-danger">
+          <span class="btn-label"><i class="fa fa-trash"></i></span>Trash</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-lg-6">
+
+    <table class="table" *ngIf="reduce">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Parameter  Name</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let i of table2">
+        <th scope="row">{{getindex2(i)}}</th>
+        <td>{{i}}</td>
+        <td><button type="button" class="btn btn-labeled btn-danger">
+          <span class="btn-label"><i class="fa fa-trash"></i></span>Trash</button></td>
+
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
+</mat-card>
+
+    </div>
+  </div>
+</div>
+<br><br>

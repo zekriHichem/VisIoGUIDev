@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <mat-card fxFlex="100">
+        <div class="card-header float-lg-right">
+          <button class="btn btn-danger" (click)="removeCard()">remove</button>
+        </div>
+        <div class="card-title">
+          <h4>Simple Moving Average</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-4">
+              <label>Chose your feature</label><br>
+              <select class="form-control" [(ngModel)]="selectedParm">
+                <option *ngFor="let i of params">{{i}}</option>
+              </select>
+
+            </div>
+            <div class="col-lg-4">
+              <label>Chose your windows size</label><br>
+              <input class="range" type="range" min="0" max="1000" value="10" step="1" [(ngModel)]="sizewin" (change)="sizeChange()" onmousemove="rangevalue1.value=value" style="width: 80%"/>
+              <output id="rangevalue1">10</output>
+
+            </div>
+
+            <div class="col-lg-4">
+              <br>
+              <button class="btn btn-info" (click)="addChart()" *ngIf="btnRun">Run Algo <i class="fa fa-caret-right"></i> </button>
+
+            </div>
+
+
+          </div>
+          <hr>
+          <div class="row" #container>
+
+
+          </div>
+
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<br>
+<br>
