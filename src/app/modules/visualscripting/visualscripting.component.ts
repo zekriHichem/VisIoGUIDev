@@ -44,7 +44,6 @@ export class VisualscriptingComponent implements OnInit, AfterViewInit {
     this.user = sessionStorage.getItem('username');
 
     this.http.get(this.url_ss + 'getallsessions/' + this.user).subscribe((res: SessionSpark[]) => {
-      // console.log(res);
       res.forEach(e => {
         if (e.state == 'idle')
           this.databaseType.push({value: e.id.toString(), viewValue: 'session' + e.id.toString()}) ;
@@ -58,10 +57,11 @@ export class VisualscriptingComponent implements OnInit, AfterViewInit {
     this.http.get(this.url_interface_management + 'getbddsTables/' + this.user).subscribe((dbs:DatabasesTable[]) => {
       this.http.get(this.url_interface_management + 'getserver/' + this.user).subscribe((server:ServerStatus)=> {
         const container = this.el.nativeElement;
-        const components = [new BddComponent(dbs), new PcaComponent(this.http, server) , new DFTComponent(this.http, server), new LinechartComponent(), new UmapComponent(this.http), new ScatterplotComponent(),new SMAComponent(this.http)];
+        const components = [new BddComponent(dbs), new PcaComponent(this.http, server) ,
+          new DFTComponent(this.http, server), new LinechartComponent(), new UmapComponent(this.http),
+          new ScatterplotComponent(),new SMAComponent(this.http)];
         this.editor = new NodeEditor('demo@0.2.0', container);
         this.editor.use(ConnectionPlugin);
-        console.log('AngularRenderPlugin', AngularRenderPlugin)
         this.editor.use(AngularRenderPlugin);
         this.editor.use(ContextMenuPlugin);
         this.engine = new Engine('demo@0.2.0');
@@ -81,7 +81,6 @@ export class VisualscriptingComponent implements OnInit, AfterViewInit {
         });
 
         this.editor.view.resize();
-        //this.editor.trigger('process');
 
       });
           });

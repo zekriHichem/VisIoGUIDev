@@ -11,6 +11,9 @@ import {environment} from '../../../../environments/environment';
   templateUrl: './add-database-modal.component.html',
   styleUrls: ['./add-database-modal.component.scss']
 })
+/*
+* Modal to add Bdds connection
+*/
 export class AddDatabaseModalComponent implements OnInit {
 
   url = environment.url_interface ;

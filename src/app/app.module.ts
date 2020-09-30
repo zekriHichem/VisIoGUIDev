@@ -11,7 +11,6 @@ import {VisualscriptingModule} from './modules/visualscripting/visualscripting.m
 import * as PlotlyJS from 'plotly.js/dist/plotly.js';
 import { PlotlyModule } from 'angular-plotly.js';
 import { LinechartComponent } from './Visualisations/linechart/linechart.component';
-import { Linechart2Component as Line } from './shared/visualisation/linechart/linechart2.component';
 
 import { ScatterplotComponent } from './Visualisations/scatterplot/scatterplot.component';
 import {LottieModule} from 'ngx-lottie';

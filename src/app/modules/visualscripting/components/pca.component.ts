@@ -25,34 +25,6 @@ export class PcaComponent extends Component {
 
 
  async worker(node, inputs, outputs,editor) {
-   /* console.log("PCA worker")
-    let sessionid = sessionStorage.getItem('sessionId');
-    if (sessionid== null) {
-    }else {
-      console.log('PCA');
-      console.log(inputs['table']);
-
-      let typedata = inputs['table'][0].split(".")[0];
-      let inputName = inputs['table'][0].split(".")[1];
-      this.http.post('http://localhost:8888/runPCA', {typedata: typedata + 'Spark',input_name: inputName,session_id: sessionid , is_mts: 0, id: Date.now() }).subscribe((e:ResponseAlgo) => {
-          for (var i = 0; i < editor.nodes.length; i++) {
-            if (editor.nodes[i].id == node.id) {
-              if (e.status != "ERROR") {
-                editor.nodes[i].addControl(new StatusControls(editor, 'Success', true));
-                editor.nodes[i].update();
-                outputs['result'] = "FromSparkTo." + e.output
-              } else {
-                editor.nodes[i].addControl(new StatusControls(editor, 'Success', false));
-                editor.nodes[i].update()
-              }
-            }
-          }
-      }
-      );
-    }
-    while(outputs['result'] == undefined) {
-    }*/
-   console.log(node.data.reductionsize);
    let sessionid = sessionStorage.getItem('sessionId');
     console.log('bEGIN pca');
     if (sessionid == null) {

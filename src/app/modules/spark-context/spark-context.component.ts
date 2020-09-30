@@ -40,19 +40,19 @@ export class SparkContextComponent implements OnInit {
     this.http.get(this.url_interface_manament + 'getserver/' + this.user).subscribe((res: ServerStatus) => {
       console.log(res);
       if (res.port == 0) {
-       this.serverExist = false;
-       this.serverruning = false;
-     } else {
-       this.serverExist = true;
-       this.livyAdr = res.host;
-       this.livyPort = res.port;
-       if (res.status == 'off') {
-         this.serverruning = false;
-       } else {
-         this.serverruning = true;
-         this.getAllSessions();
-       }
-     }
+        this.serverExist = false;
+        this.serverruning = false;
+      } else {
+        this.serverExist = true;
+        this.livyAdr = res.host;
+        this.livyPort = res.port;
+        if (res.status == 'off') {
+          this.serverruning = false;
+        } else {
+          this.serverruning = true;
+          this.getAllSessions();
+        }
+      }
     });
   }
   // Click functions
@@ -117,5 +117,3 @@ export class SparkContextComponent implements OnInit {
   }
   // end other functions
 }
-
-

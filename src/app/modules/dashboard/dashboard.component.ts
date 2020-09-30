@@ -19,6 +19,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+/*
+*
+* This component is for dashboard not implimented we can here add general information about solution
+* Add statistics
+*
+*/
 export class DashboardComponent implements OnInit {
 
   bigChart = [];

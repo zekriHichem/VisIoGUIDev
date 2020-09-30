@@ -10,6 +10,9 @@ import {environment} from '../../../../environments/environment';
   templateUrl: './database.component.html',
   styleUrls: ['./database.component.scss']
 })
+/*
+* this card to show Bdds connection
+*/
 export class DatabaseComponent implements OnInit {
 
   url_interface_management = environment.url_interface ;
@@ -28,6 +31,7 @@ export class DatabaseComponent implements OnInit {
   @Input() db;
   @Input() ref;
 
+  // spinnerService is for loading
   constructor(private http: HttpClient, private spinnerService: Ng4LoadingSpinnerService) { }
 
   ngOnInit() {

@@ -2,12 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-interface Simple {
-  id: String;
-  cols: String;
-  series: any[]
 
-}
 @Component({
   selector: 'app-scatterplot',
   templateUrl: './scatterplot.component.html',
@@ -34,7 +29,7 @@ export class ScatterplotComponent implements OnInit {
       var t = [];
       var scaletime = [];
       var names = [];
-      this.http.get(this.url + 'getSample/scatterchart/' + params.get('input') ).subscribe((res: Simple[]) => {
+      this.http.get(this.url + 'getSample/scatterchart/' + params.get('input') ).subscribe((res: Sample[]) => {
         res.forEach(e=>{
           if(e.series.length > 3){
             alert("Check your data , high dimension")

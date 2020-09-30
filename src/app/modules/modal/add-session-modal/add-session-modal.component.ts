@@ -9,6 +9,10 @@ import {environment} from '../../../../environments/environment';
   templateUrl: './add-session-modal.component.html',
   styleUrls: ['./add-session-modal.component.scss']
 })
+
+/*
+* Modal to add session Spark
+*/
 export class AddSessionModalComponent implements OnInit {
   url_spark_management = environment.url_spark ;
   selectedKind: string;

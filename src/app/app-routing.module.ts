@@ -3,10 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
-import {LoadDataComponent} from './modules/load-data/load-data.component';
 import {SparkContextComponent} from './modules/spark-context/spark-context.component';
 
-import {AlgorithmComponent} from './modules/algorithm/algorithm.component';
 
 import {VisualscriptingComponent} from './modules/visualscripting/visualscripting.component';
 import {DatabasesComponent} from './modules/databases/databases.component';
@@ -22,19 +20,12 @@ const routes: Routes = [{
     path: 'dashboard',
     component: DashboardComponent
   }, {
-    path: 'loadData',
-    component: LoadDataComponent
-  }, {
       path: 'SparkContext',
       component: SparkContextComponent
     }, {
     path: 'databases',
     component: DatabasesComponent
   },
-    {
-      path: 'algorithm',
-      component: AlgorithmComponent
-    },
     {
       path: 'visual',
       component: VisualscriptingComponent

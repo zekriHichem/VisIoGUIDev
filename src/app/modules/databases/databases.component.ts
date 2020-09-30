@@ -11,23 +11,41 @@ import {environment} from '../../../environments/environment';
   templateUrl: './databases.component.html',
   styleUrls: ['./databases.component.scss']
 })
+/*
+*
+* this component is for manage databases connection
+* include an other dynamique component to show defrent connections
+*
+*/
 export class DatabasesComponent implements OnInit {
+  // dynamique component card for databases connection
   matDialogRef: MatDialogRef<AddDatabaseModalComponent>;
+  // this variable is for the future use if we went to add auth
   user: String;
-  url_DB_Mang = environment.url_interface ;
+  //url to MS of interface management
+  url_interface_mg = environment.url_interface ;
+
+  // container for database card
   @ViewChild('container', {static: true, read: ViewContainerRef}) container;
 
-
+ // http for http connection REST
   constructor (private http: HttpClient, private resolver: ComponentFactoryResolver ,private matDialog: MatDialog) { }
 
+  // in loading page
   ngOnInit() {
+    /*
+    * here we get all Bdds connections
+    */
     this.user = sessionStorage.getItem('username');
-    console.log('hell');
     this.getAllBdds();
   }
 
   getAllBdds(){
-    this.http.get(this.url_DB_Mang + 'getallbdd/' + this.user).subscribe((res: DbStatus[]) => {
+    /*
+    * Connect with Interface MS to get Bdds connections
+    * return Bdstatus
+    */
+    this.http.get(this.url_interface_mg + 'getallbdd/' + this.user).subscribe((res: DbStatus[]) => {
       res.forEach(e => {
         console.log(e);
         const ref = this.container.createComponent(this.resolver.resolveComponentFactory(DatabaseComponent));
@@ -53,6 +71,9 @@ export class DatabasesComponent implements OnInit {
   }
 
   OpenModal() {
+    /*
+    * open modal to add Bdd connection
+    */
     this.matDialogRef = this.matDialog.open(AddDatabaseModalComponent, {
       disableClose: true
     });
